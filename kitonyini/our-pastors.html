@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Pastors - Kitonyini Central Seventh Day Adventist (SDA) Church</title>
+    <meta name="description" content="Meet our dedicated pastoral team at Kitonyini Central SDA Church. Learn about our pastors' ministries and services.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2f557f;
+            --dark-blue: #052252;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-gray: #666666;
+        }
+
+        body {
+            font-family: 'Noto Sans', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background-color: var(--light-gray);
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .header-top-nav {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .header-top-nav a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .header-top-nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+        }
+
+        .church-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-blue);
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .main-nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .main-nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        .main-nav a.active {
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%232f557f" width="1200" height="400"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Noto Serif', serif;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 3rem 0;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            font-family: 'Noto Serif', serif;
+        }
+
+        .section-divider {
+            width: 100px;
+            height: 3px;
+            background-color: var(--dark-blue);
+            margin: 1rem auto 2rem;
+        }
+
+        .verse-quote {
+            text-align: center;
+            font-style: italic;
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* Vision & Mission */
+        .vision-mission {
+            background-color: var(--light-gray);
+            padding: 3rem 0;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 2rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer h4 {
+            margin-bottom: 1rem;
+        }
+
+        .footer a {
+            color: var(--white);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .footer a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.9rem;
+        }
+
+        /* SDA Logo in Sidebar */
+        .sda-logo-sidebar {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+        }
+
+        .sda-logo-sidebar img {
+            width: 50px;
+            height: auto;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .sda-logo-sidebar img:hover {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                padding: 1rem;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+
+            .main-nav.active {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .sda-logo-sidebar {
+                display: none;
+            }
+        }
+
+        /* Official SDA Logo SVG */
+        .sda-logo {
+            width: 253.71px;
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-top">
+      <div class="container">
+        <nav class="header-top-nav">
+          <a href="giving.html">Online Giving</a>
+          <a href="live-stream.html">Live Stream</a>
+          <a href="prayer-request.html">Prayer Request</a>
+          <a href="announcements.html">Announcements</a>
+        </nav>
+      </div>
+    </div>
+        <div class="container header-main">
+            <div class="logo">
+                <svg class="sda-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 253.71 227.63">
+                    <path fill="#2f557f" d="M67.68,120.38c-.1-9.91,2.8-18.41,20.8-36.41l39-39c10.4-10.4,19.1-19.29,19.1-29V.67c0-.89-1.1-.89-1.2,0-2.6,12.4-7.5,17.3-17.8,27.61L82.28,73.47c-17.1,17-19.5,35.1-15.8,46.91C66.78,121.38,67.68,121.47,67.68,120.38Zm64.2,38.9c0,.89,1,.89,1.2,0,2.6-12.5,7.6-17.4,17.8-27.61L166,116.78c19.8-19.9,10.7-39-.9-44.31-1-.5-1.4.31-.6,1,9.3,8,6.5,21.5-5.2,33.2L151,115c-10.4,10.31-19.1,19.2-19.1,29Zm81.8,26.6L168,178.17l-17.1,17.11c-10.4,10.39-19,19.3-19,29V227c0,.7.9.9,1.2.11,3.2-8.7,13.9-18.11,33.5-14.8,0,0,85.4,14.8,86.1,14.8a.9.9,0,0,0,1-.61.79.79,0,0,0-.2-.8c-.3-.39-39.8-39.8-39.8-39.8Zm-107.5,1h15a.66.66,0,0,0,.6-.6c0-7.9-6-13.31-30-9.2L40,186S.58,225.37.28,225.78a.79.79,0,0,0-.1,1.1.81.81,0,0,0,.8.2c.7-.11,86.1-14.8,86.1-14.8,19.6-3.31,30.3,6,33.5,14.8.3.8,1.2.7,1.2-.11v-29.5a.66.66,0,0,0-.6-.6l-15,.1a.64.64,0,0,1-.6-.6v-8.9a.65.65,0,0,1,.6-.6Zm26.8,25.9a36.3,36.3,0,0,1,6.9-15.81h-7.5a.65.65,0,0,0-.6.61v15.2c0,.89,1.1.89,1.2,0Zm13.6-158.6c0-.91-1.1-.91-1.2,0-2.6,12.39-7.5,17.29-17.8,27.6l-39.8,39.69c-19.8,19.81-10.7,39,.9,44.31,1,.5,1.4-.4.6-1-9.3-8-6.5-21.61,5.2-33.2l33-33c10.4-10.4,19.1-19.3,19.1-29Zm-19.1,17.49c10.4-10.3,19-19.2,19.1-29V27.27c0-.9-1.1-.9-1.2,0-2.6,12.4-7.5,17.4-17.8,27.7L86.68,95.78c-19.8,19.8-23.3,39-13.2,51.4.7.8,1.4.3,1-.7-6.7-15.1,9.3-31.1,16.9-38.7Zm37.6,82.5-14.3,14.2c-6.5,6.5-12.3,12.4-15.8,18.4h14.1l1.7-1.7,20.5-20.5c17.1-16.9,19.5-35,15.8-46.8-.3-1-1.2-1.1-1.2,0,.1,9.9-2.8,18.4-20.8,36.4Zm-2.8-24-11.4,11.5c-10.4,10.4-19.1,19.4-19.1,29.11v15.3c0,.89,1.1.89,1.2,0,2.6-12.4,7.5-17.4,17.8-27.7L167,142.17c19.8-19.8,23.3-39,13.2-51.4-.7-.8-1.4-.3-1,.7C185.88,106.57,169.88,122.57,162.28,130.17Z"/>
+                </svg>
+                <div class="church-name">Kitonyini Central SDA Church</div>
+            </div>
+            <button class="nav-toggle" onclick="toggleNav()">☰</button>
+            <nav>
+                <ul class="main-nav" id="mainNav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="our-pastors.html" class="active">Our Pastors</a></li>
+                    <li><a href="beliefs.html">Beliefs</a></li>
+                    <li><a href="departments-and-ministries.html">Ministries</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Our Pastors</h1>
+      <p>Meet the pastoral team serving Kitonyini Central.</p>
+    </div>
+  </section>
+
+  <main class="main-content">
+        <div class="container">
+            <!-- Pastors Section -->
+            <section class="section">
+                <h2 class="section-title">Our Pastoral Team</h2>
+                <div class="section-divider"></div>
+                <p class="verse-quote">"And I will give you shepherds after my own heart, who will feed you with knowledge and understanding." - Jeremiah 3:15</p>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Senior Pastor</h3>
+                        <p><strong>Name:</strong> Pastor David Kiprop</p>
+                        <p><strong>Education:</strong> Master of Divinity, Andrews University</p>
+                        <p><strong>Experience:</strong> 15+ years in pastoral ministry</p>
+                        <p>Pastor David leads our congregation with a passion for expository preaching and community outreach. He oversees the overall spiritual direction of the church and provides pastoral care to members.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Associate Pastor</h3>
+                        <p><strong>Name:</strong> Pastor Sarah Wanjiku</p>
+                        <p><strong>Education:</strong> Bachelor of Theology, University of Eastern Africa</p>
+                        <p><strong>Experience:</strong> 8 years in youth and family ministry</p>
+                        <p>Pastor Sarah specializes in youth ministry and family life education. She coordinates Sabbath School programs and leads our young adult fellowship.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Youth Pastor</h3>
+                        <p><strong>Name:</strong> Pastor Michael Oduya</p>
+                        <p><strong>Education:</strong> Bachelor of Arts in Religious Studies</p>
+                        <p><strong>Experience:</strong> 5 years in youth evangelism</p>
+                        <p>Pastor Michael works with our youth department, organizing camps, retreats, and community service projects. He is passionate about mentoring the next generation of church leaders.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Children's Ministry Coordinator</h3>
+                        <p><strong>Name:</strong> Pastor Grace Ndung'u</p>
+                        <p><strong>Education:</strong> Early Childhood Education Diploma</p>
+                        <p><strong>Experience:</strong> 10 years in children's ministry</p>
+                        <p>Pastor Grace oversees our children's Sabbath School and junior youth programs. She creates engaging, age-appropriate spiritual education for our youngest members.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Information -->
+            <section class="section">
+                <h2 class="section-title">Contact Our Pastors</h2>
+                <div class="section-divider"></div>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Pastoral Care</h3>
+                        <p>For counseling, prayer requests, or spiritual guidance, please contact our pastors:</p>
+                        <p><strong>Email:</strong> pastors@kitonyinicentralsda.or.ke</p>
+                        <p><strong>Phone:</strong> +254 733 567 890</p>
+                        <p><strong>Office Hours:</strong> Monday-Friday, 9 AM - 5 PM</p>
+                    </div>
+                    <div class="card">
+                        <h3>Appointment Scheduling</h3>
+                        <p>To schedule a meeting with one of our pastors, please call the church office or send an email. We are here to support you in your spiritual journey.</p>
+                        <p><strong>Church Office:</strong> +254 712 345 678</p>
+                        <p><strong>Address:</strong> Kitonyini, Machakos County, Kenya</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h4>Kitonyini Central SDA Church</h4>
+                    <p>Kitonyini, Machakos County<br>
+                    Kenya</p>
+                    <p>Email: info@kitonyinicentralsda.or.ke<br>
+                    Phone: +254 712 345 678</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="beliefs.html">Our Beliefs</a>
+                    <a href="departments-and-ministries.html">Ministries</a>
+                    <a href="giving.html">Online Giving</a>
+                </div>
+                <div>
+                    <h4>Resources</h4>
+                    <a href="https://www.adventist.org" target="_blank">Adventist.org</a>
+                    <a href="https://www.hopetv.org" target="_blank">Hope Channel</a>
+                    <a href="https://www.awr.org" target="_blank">Adventist World Radio</a>
+                    <a href="https://absg.adventist.org" target="_blank">Bible Study Guide</a>
+                </div>
+                <div>
+                    <h4>Connect With Us</h4>
+                    <a href="#facebook" style="color: var(--primary-blue);">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg> Facebook
+                    </a>
+                    <a href="#twitter" style="color: var(--primary-blue);">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg> Twitter
+                    </a>
+                    <a href="#instagram" style="color: var(--primary-blue);">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.017 0C8.396 0 7.996.014 6.79.067 5.584.12 4.652.307 3.846.558c-.84.267-1.552.62-2.256 1.324S.84 3.156.573 3.996C.322 4.802.135 5.734.082 6.94.029 8.146 0 8.546 0 12.017s.014 3.871.067 5.077c.053 1.206.24 2.138.491 2.944.267.84.62 1.552 1.324 2.256s1.416 1.057 2.256 1.324c.806.251 1.738.438 2.944.491 1.206.053 1.606.067 5.077.067s3.871-.014 5.077-.067c1.206-.053 2.138-.24 2.944-.491.84-.267 1.552-.62 2.256-1.324s1.057-1.416 1.324-2.256c.251-.806.438-1.738.491-2.944.053-1.206.067-1.606.067-5.077s-.014-3.871-.067-5.077c-.053-1.206-.24-2.138-.491-2.944-.267-.84-.62-1.552-1.324-2.256S20.844.84 20.004.573C19.198.322 18.266.135 17.06.082 15.854.029 15.454 0 12.017 0zm0 1.982c3.414 0 3.814.013 5.16.06 1.249.046 1.927.26 2.375.433.584.226 1 .5 1.437.937.437.437.711 1.053.937 1.437.173.448.387 1.126.433 2.375.047 1.346.06 1.746.06 5.16s-.013 3.814-.06 5.16c-.046 1.249-.26 1.927-.433 2.375-.226.584-.5 1 .937 1.437-.437.437-1.053.711-1.437.937-.448.173-1.126.387-2.375.433-1.346.047-1.746.06-5.16.06s-3.814-.013-5.16-.06c-1.249-.046-1.927-.26-2.375-.433-.584-.226-1-.5-1.437-.937-.437-.437-.711-1.053-.937-1.437-.173-.448-.387-1.126-.433-2.375-.047-1.346-.06-1.746-.06-5.16s.013-3.814.06-5.16c.046-1.249.26-1.927.433-2.375.226-.584.5-1 .937-1.437.437-.437 1.053-.711 1.437-.937.448-.173 1.126-.387 2.375-.433 1.346-.047 1.746-.06 5.16-.06zm0 3.984a6.033 6.033 0 100 12.066 6.033 6.033 0 000-12.066zm0 9.982a3.949 3.949 0 110-7.898 3.949 3.949 0 010 7.898zm6.406-11.845a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/>
+                        </svg> Instagram
+                    </a>
+                    <a href="#youtube" style="color: var(--primary-blue);">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg> YouTube
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Kitonyini Central SDA Church. All rights reserved.</p>
+                <p>Seventh-day Adventist Church - Machakos County, Kenya</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sidebar SDA Logo -->
+    <div class="sda-logo-sidebar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 253.71 227.63">
+            <path fill="#ffffff" opacity="0.8" d="M67.68,120.38c-.1-9.91,2.8-18.41,20.8-36.41l39-39c10.4-10.4,19.1-19.29,19.1-29V.67c0-.89-1.1-.89-1.2,0-2.6,12.4-7.5,17.3-17.8,27.61L82.28,73.47c-17.1,17-19.5,35.1-15.8,46.91C66.78,121.38,67.68,121.47,67.68,120.38Zm64.2,38.9c0,.89,1,.89,1.2,0,2.6-12.5,7.6-17.4,17.8-27.61L166,116.78c19.8-19.9,10.7-39-.9-44.31-1-.5-1.4.31-.6,1,9.3,8,6.5,21.5-5.2,33.2L151,115c-10.4,10.31-19.1,19.2-19.1,29Z"/>
+        </svg>
+    </div>
+
+    <script>
+        function toggleNav() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    // Close mobile menu if open
+                    document.getElementById('mainNav').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+</body>
+</html>

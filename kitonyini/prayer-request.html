@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer Request - Kitonyini Central SDA Church</title>
+    <meta name="description" content="Submit your prayer requests">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-blue: #2f557f;
+            --dark-blue: #052252;
+            --light-blue: #4a7ba7;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --accent-gold: #c9a961;
+        }
+        body { font-family: 'Noto Sans', Arial, sans-serif; line-height: 1.6; color: var(--text-dark); }
+        .header { background-color: var(--white); box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .header-top { background-color: var(--light-gray); padding: 0.5rem 0; font-size: 0.9rem; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .header-top-nav { display:flex; justify-content:flex-end; gap:1.5rem; }
+        .header-top-nav a{ color:var(--text-gray); text-decoration:none; }
+        .header-top-nav a.active{ color:var(--primary-blue); font-weight:600; }
+        .header-main { display:flex; justify-content:space-between; align-items:center; padding:1rem 0; }
+        .logo { display:flex; align-items:center; gap:1rem; text-decoration:none; }
+        .church-name { font-size:1.2rem; font-weight:bold; color:var(--primary-blue); }
+        .nav-toggle{ display:none; background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--primary-blue); }
+        .main-nav{ display:flex; gap:2rem; list-style:none; }
+        .main-nav a{ color:var(--text-dark); text-decoration:none; font-weight:500; }
+        .main-nav a:hover{ color:var(--primary-blue); }
+        .page-header{ background: linear-gradient(rgba(47,85,127,0.9), rgba(5,34,82,0.9)); color:var(--white); padding:4rem 0 2rem; text-align:center; }
+        .page-header h1{ font-size:2.5rem; font-family:'Noto Serif', serif; }
+        .breadcrumb{ color:rgba(255,255,255,0.85); margin-top:0.5rem; }
+        .breadcrumb a{ color:rgba(255,255,255,0.85); text-decoration:none; }
+        .main-content{ padding:3rem 0; }
+        .intro-section{ max-width:800px; margin:0 auto 3rem; text-align:center; }
+        .verse-quote{ background:var(--light-gray); padding:1.5rem; border-left:4px solid var(--accent-gold); font-style:italic; margin:1.5rem 0; }
+        .content-grid{ display:grid; grid-template-columns:1fr 1fr; gap:2rem; max-width:1000px; margin:0 auto; }
+        .prayer-form{ background:var(--white); padding:2rem; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.06); }
+        .prayer-form h3{ color:var(--dark-blue); margin-bottom:1.5rem; }
+        .form-group{ margin-bottom:1.25rem; }
+        .form-group label{ display:block; margin-bottom:0.4rem; color:var(--text-dark); font-weight:500; }
+        .form-group input, .form-group textarea, .form-group select{ width:100%; padding:0.75rem; border:1px solid #ddd; border-radius:6px; font-family:inherit; }
+        .form-group textarea{ min-height:150px; resize:vertical; }
+        .checkbox-group{ display:flex; align-items:center; gap:0.5rem; }
+        .checkbox-group input{ width:auto; }
+        .submit-btn{ background:var(--primary-blue); color:var(--white); border:none; padding:0.75rem 2rem; border-radius:6px; cursor:pointer; font-size:1rem; font-weight:600; width:100%; }
+        .submit-btn:hover{ background:var(--dark-blue); }
+        .info-panel{ background:var(--primary-blue); color:var(--white); padding:2rem; border-radius:8px; }
+        .info-panel h3{ margin-bottom:1.5rem; }
+        .info-item{ margin-bottom:1.5rem; }
+        .info-item h4{ margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem; }
+        .info-icon{ font-size:1.5rem; }
+        .prayer-types{ background:var(--white); padding:2rem; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.06); margin-top:2rem; }
+        .prayer-types h3{ color:var(--dark-blue); margin-bottom:1.5rem; text-align:center; }
+        .types-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; }
+        .type-card{ padding:1rem; border:2px solid var(--light-gray); border-radius:8px; text-align:center; }
+        .type-card h4{ color:var(--primary-blue); margin-bottom:0.5rem; }
+        .type-card p{ color:var(--text-gray); font-size:0.9rem; }
+        .footer{ background:var(--primary-blue); color:var(--white); padding:2rem 0 1rem; margin-top:3rem; }
+        .footer-content{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.25rem; margin-bottom:1rem; }
+        .footer h4{ margin-bottom:1rem; }
+        .footer a{ color:var(--white); text-decoration:none; display:block; margin-bottom:0.5rem; }
+        .footer-bottom{ text-align:center; padding-top:1rem; border-top:1px solid rgba(255,255,255,0.2); }
+        @media (max-width:768px){ 
+            .nav-toggle{ display:block; } 
+            .main-nav{ display:none; position:absolute; left:0; right:0; top:100%; background:var(--white); padding:1rem; z-index:999; } 
+            .main-nav.active{ display:flex; flex-direction:column; gap:1rem; }
+            .main-nav a{ display:block; padding:0.5rem 0; }
+            .content-grid{ grid-template-columns:1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <nav class="header-top-nav">
+                    <a href="giving.html">Online Giving</a>
+                    <a href="live-stream.html">Live Stream</a>
+                    <a href="prayer-request.html" class="active">Prayer Request</a>
+                    <a href="announcements.html">Announcements</a>
+                </nav>
+            </div>
+        </div>
+        <div class="container header-main">
+            <div class="logo">
+                <svg class="sda-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 253.71 227.63">
+                    <path fill="#2f557f" d="M67.68,120.38c-.1-9.91,2.8-18.41,20.8-36.41l39-39c10.4-10.4,19.1-19.29,19.1-29V.67c0-.89-1.1-.89-1.2,0-2.6,12.4-7.5,17.3-17.8,27.61L82.28,73.47c-17.1,17-19.5,35.1-15.8,46.91C66.78,121.38,67.68,121.47,67.68,120.38Zm64.2,38.9c0,.89,1,.89,1.2,0,2.6-12.5,7.6-17.4,17.8-27.61L166,116.78c19.8-19.9,10.7-39-.9-44.31-1-.5-1.4.31-.6,1,9.3,8,6.5,21.5-5.2,33.2L151,115c-10.4,10.31-19.1,19.2-19.1,29Zm81.8,26.6L168,178.17l-17.1,17.11c-10.4,10.39-19,19.3-19,29V227c0,.7.9.9,1.2.11,3.2-8.7,13.9-18.11,33.5-14.8,0,0,85.4,14.8,86.1,14.8a.9.9,0,0,0,1-.61.79.79,0,0,0-.2-.8c-.3-.39-39.8-39.8-39.8-39.8Zm-107.5,1h15a.66.66,0,0,0,.6-.6c0-7.9-6-13.31-30-9.2L40,186S.58,225.37.28,225.78a.79.79,0,0,0-.1,1.1.81.81,0,0,0,.8.2c.7-.11,86.1-14.8,86.1-14.8,19.6-3.31,30.3,6,33.5,14.8.3.8,1.2.7,1.2-.11v-29.5a.66.66,0,0,0-.6-.6l-15,.1a.64.64,0,0,1-.6-.6v-8.9a.65.65,0,0,1,.6-.6Zm26.8,25.9a36.3,36.3,0,0,1,6.9-15.81h-7.5a.65.65,0,0,0-.6.61v15.2c0,.89,1.1.89,1.2,0Zm13.6-158.6c0-.91-1.1-.91-1.2,0-2.6,12.39-7.5,17.29-17.8,27.6l-39.8,39.69c-19.8,19.81-10.7,39,.9,44.31,1,.5,1.4-.4.6-1-9.3-8-6.5-21.61,5.2-33.2l33-33c10.4-10.4,19.1-19.3,19.1-29Zm-19.1,17.49c10.4-10.3,19-19.2,19.1-29V27.27c0-.9-1.1-.9-1.2,0-2.6,12.4-7.5,17.4-17.8,27.7L86.68,95.78c-19.8,19.8-23.3,39-13.2,51.4.7.8,1.4.3,1-.7-6.7-15.1,9.3-31.1,16.9-38.7Zm37.6,82.5-14.3,14.2c-6.5,6.5-12.3,12.4-15.8,18.4h14.1l1.7-1.7,20.5-20.5c17.1-16.9,19.5-35,15.8-46.8-.3-1-1.2-1.1-1.2,0,.1,9.9-2.8,18.4-20.8,36.4Zm-2.8-24-11.4,11.5c-10.4,10.4-19.1,19.4-19.1,29.11v15.3c0,.89,1.1.89,1.2,0,2.6-12.4,7.5-17.4,17.8-27.7L167,142.17c19.8-19.8,23.3-39,13.2-51.4-.7-.8-1.4-.3-1,.7C185.88,106.57,169.88,122.57,162.28,130.17Z"/>
+                </svg>
+                <div class="church-name">Kitonyini Central SDA Church</div>
+            </div>
+            <button class="nav-toggle" onclick="toggleNav()">☰</button>
+            <nav>
+                <ul class="main-nav" id="mainNav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="our-pastors.html">Our Pastors</a></li>
+                    <li><a href="beliefs.html">Beliefs</a></li>
+                    <li><a href="departments-and-ministries.html">Ministries</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Prayer Request</h1>
+            <div class="breadcrumb"><a href="index.html">Home</a> / Prayer Request</div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="intro-section">
+                <h2 style="color:var(--dark-blue);margin-bottom:1rem;">We're Here to Pray With You</h2>
+                <p style="color:var(--text-gray);font-size:1.05rem;">The effective, fervent prayer of a righteous person avails much. Share your prayer request with our church family, and we will lift you up in prayer.</p>
+                <div class="verse-quote">"Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God." — Philippians 4:6</div>
+            </div>
+
+            <div class="content-grid">
+                <div class="prayer-form">
+                    <h3>Submit Your Prayer Request</h3>
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel">
+                    </div>
+                    <div class="form-group">
+                        <label>Prayer Request Type *</label>
+                        <select required>
+                            <option value="">Select a type</option>
+                            <option>Health & Healing</option>
+                            <option>Family & Relationships</option>
+                            <option>Financial Needs</option>
+                            <option>Spiritual Growth</option>
+                            <option>Job & Career</option>
+                            <option>Guidance & Direction</option>
+                            <option>Thanksgiving & Praise</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Your Prayer Request *</label>
+                        <textarea required placeholder="Share your prayer request with us..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="urgent">
+                            <label for="urgent" style="margin:0;">Mark as urgent</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="public">
+                            <label for="public" style="margin:0;">Share with prayer team (keep confidential)</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Prayer Request</button>
+                </div>
+
+                <div class="info-panel">
+                    <h3>How We Pray for You</h3>
+                    <div class="info-item">
+                        <h4><span class="info-icon">🙏</span> Prayer Team</h4>
+                        <p>Our dedicated prayer team lifts up every request during our weekly prayer meetings.</p>
+                    </div>
+                    <div class="info-item">
+                        <h4><span class="info-icon">🤝</span> Confidential</h4>
+                        <p>Your requests are treated with complete confidentiality and respect.</p>
+                    </div>
+                    <div class="info-item">
+                        <h4><span class="info-icon">⏰</span> Timely Response</h4>
+                        <p>Urgent requests receive immediate attention from our pastoral team.</p>
+                    </div>
+                    <div class="info-item">
+                        <h4><span class="info-icon">💬</span> Follow-Up</h4>
+                        <p>We'll reach out to check on you and continue praying as needed.</p>
+                    </div>
+                    <div style="margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.2);">
+                        <h4 style="margin-bottom:1rem;">Need Immediate Prayer?</h4>
+                        <p style="margin-bottom:1rem;">Call our prayer line:</p>
+                        <p style="font-size:1.2rem;font-weight:600;">+254 722 456 789</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="prayer-types">
+                <h3>Common Prayer Requests</h3>
+                <div class="types-grid">
+                    <div class="type-card">
+                        <div style="font-size:2rem;margin-bottom:0.5rem;">❤️</div>
+                        <h4>Health & Healing</h4>
+                        <p>Physical, mental, and emotional healing</p>
+                    </div>
+                    <div class="type-card">
+                        <div style="font-size:2rem;margin-bottom:0.5rem;">👨‍👩‍👧‍👦</div>
+                        <h4>Family</h4>
+                        <p>Marriage, children, and relationships</p>
+                    </div>
+                    <div class="type-card">
+                        <div style="font-size:2rem;margin-bottom:0.5rem;">💼</div>
+                        <h4>Career</h4>
+                        <p>Job opportunities and workplace issues</p>
+                    </div>
+                    <div class="type-card">
+                        <div style="font-size:2rem;margin-bottom:0.5rem;">✝️</div>
+                        <h4>Spiritual Growth</h4>
+                        <p>Faith, discipleship, and ministry</p>
+                    </div>
+                    <div class="type-card">
+                        <div style="font-size:2rem;margin-bottom:0.5rem;">🧭</div>
+                        <h4>Guidance</h4>
+                        <p>Direction and decision-making</p>
+                    </div>
+                    <div class="type-card">
+                        <div style="font-size:2rem;margin-bottom:0.5rem;">🙌</div>
+                        <h4>Thanksgiving</h4>
+                        <p>Praise reports and gratitude</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h4>Kitonyini Central SDA Church</h4>
+                    <p>Kitonyini, Machakos County<br>Kenya</p>
+                    <p>Email: info@kitonyinicentralsda.or.ke<br>Phone: +254 712 345 678</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="beliefs.html">Our Beliefs</a>
+                    <a href="departments-and-ministries.html">Ministries</a>
+                    <a href="giving.html">Online Giving</a>
+                </div>
+                <div>
+                    <h4>Resources</h4>
+                    <a href="https://www.adventist.org" target="_blank">Adventist.org</a>
+                    <a href="https://www.hopetv.org" target="_blank">Hope Channel</a>
+                </div>
+                <div>
+                    <h4>Connect With Us</h4>
+                    <a href="#facebook" style="color: var(--primary-blue);">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg> Facebook
+                    </a>
+                    <a href="#youtube" style="color: var(--primary-blue);">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg> YouTube
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Kitonyini Central SDA Church. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleNav(){ document.getElementById('mainNav').classList.toggle('active'); }
+    </script>
+</body>
+</html>
