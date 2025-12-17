@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministries - Kitonyini Central SDA Church</title>
+    <meta name="description" content="Discover the ministries serving Kitonyini Central SDA Church">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary-blue:#2f557f;--dark-blue:#052252;--light-blue:#4a7ba7;--light-gray:#f5f5f5;--white:#fff;--text-dark:#333;--text-gray:#666;--accent-gold:#c9a961}
+        body{font-family:'Noto Sans',Arial,sans-serif;color:var(--text-dark);line-height:1.6}
+        .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+        .header{background:var(--white);box-shadow:0 2px 5px rgba(0,0,0,.1);position:sticky;top:0;z-index:1000}
+        .header-top{background:var(--light-gray);padding:.5rem 0;font-size:.9rem}
+        .header-top-nav{display:flex;justify-content:flex-end;gap:1.5rem}
+        .header-top-nav a{color:var(--text-gray);text-decoration:none}
+        .header-main{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
+        .logo{display:flex;align-items:center;gap:1rem;text-decoration:none}
+        .church-name{font-weight:700;color:var(--primary-blue)}
+        .nav-toggle{display:none;background:none;border:0;font-size:1.5rem;color:var(--primary-blue);cursor:pointer}
+        .main-nav{display:flex;gap:2rem;list-style:none}
+        .main-nav a{color:var(--text-dark);text-decoration:none;font-weight:500}
+        .main-nav a.active,.main-nav a:hover{color:var(--primary-blue)}
+        .page-header{background:linear-gradient(rgba(47,85,127,.9),rgba(5,34,82,.9));color:var(--white);padding:3.5rem 0 2rem;text-align:center}
+        .page-header h1{font-size:2.25rem;font-family:'Noto Serif',serif}
+        .breadcrumb{color:rgba(255,255,255,.9);margin-top:.5rem}
+        .main-content{padding:3rem 0}
+        .intro-section{text-align:center;max-width:900px;margin:0 auto 2rem}
+        .intro-section h2{color:var(--dark-blue);font-size:1.6rem;margin-bottom:.5rem}
+        .intro-section p{color:var(--text-gray);line-height:1.7}
+        .ministries-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:2rem}
+        .ministry-card{background:var(--white);border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.06);overflow:hidden;display:flex;flex-direction:column}
+        .ministry-icon{padding:1.5rem;text-align:center;background:linear-gradient(135deg,var(--primary-blue),var(--light-blue));color:#fff}
+        .ministry-icon-symbol{font-size:2.2rem;margin-bottom:.35rem}
+        .ministry-content{padding:1rem 1.25rem;flex:1;display:flex;flex-direction:column}
+        .ministry-title{font-size:1.05rem;color:var(--dark-blue);font-weight:700;margin-bottom:.5rem}
+        .ministry-description{color:var(--text-gray);flex:1}
+        .ministry-details{background:var(--light-gray);padding:.75rem;border-radius:8px;margin-top:1rem}
+        .ministry-detail-item{display:flex;align-items:center;gap:.5rem;font-size:.95rem;margin-bottom:.4rem}
+        .ministry-detail-icon{color:var(--primary-blue)}
+        .ministry-leaders{margin-top:.75rem;border-top:1px solid rgba(0,0,0,.04);padding-top:.75rem}
+        .leader-name{color:var(--primary-blue);font-weight:600}
+        .cta-section{background:linear-gradient(135deg,var(--primary-blue),var(--dark-blue));color:#fff;padding:3rem 1rem;text-align:center;border-radius:10px;margin-top:2rem}
+        .cta-btn{display:inline-block;background:#fff;color:var(--primary-blue);padding:.75rem 1.5rem;border-radius:999px;text-decoration:none;font-weight:700}
+        .footer{background:var(--dark-blue);color:#fff;padding:2rem 0;margin-top:2rem}
+        .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1rem}
+        .footer a{color:#fff;text-decoration:none;display:block;margin-bottom:.5rem;opacity:.9}
+        @media(max-width:768px){.nav-toggle{display:block}.main-nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--white);padding:1rem}.main-nav.active{display:flex;flex-direction:column}.page-header h1{font-size:1.6rem}}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="container header-top-inner">
+                <nav class="header-top-nav">
+                    <a href="giving.html">Online Giving</a>
+                    <a href="live-stream.html">Live Stream</a>
+                    <a href="prayer-request.html">Prayer Request</a>
+                    <a href="announcements.html">Announcements</a>
+                </nav>
+            </div>
+        </div>
+        <div class="container header-main">
+            <a href="index.html" class="logo">
+                <svg class="sda-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 253.71 227.63" style="width:80px;height:auto;">
+                    <path fill="#2f557f" d="M67.68,120.38c-.1-9.91,2.8-18.41,20.8-36.41l39-39c10.4-10.4,19.1-19.29,19.1-29V.67c0-.89-1.1-.89-1.2,0-2.6,12.4-7.5,17.3-17.8,27.61L82.28,73.47c-17.1,17-19.5,35.1-15.8,46.91C66.78,121.38,67.68,121.47,67.68,120.38Zm64.2,38.9c0,.89,1,.89,1.2,0,2.6-12.5,7.6-17.4,17.8-27.61L166,116.78c19.8-19.9,10.7-39-.9-44.31-1-.5-1.4.31-.6,1,9.3,8,6.5,21.5-5.2,33.2L151,115c-10.4,10.31-19.1,19.2-19.1,29Z"/>
+                </svg>
+                <div class="church-name">Kitonyini Central SDA Church</div>
+            </a>
+            <button class="nav-toggle" onclick="toggleNav()">☰</button>
+            <nav>
+                <ul class="main-nav" id="mainNav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="beliefs.html">Beliefs</a></li>
+                    <li><a href="departments-and-ministries.html" class="active">Ministries</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Ministries</h1>
+            <div class="breadcrumb"><a href="index.html">Home</a> / Ministries</div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="intro-section">
+                <h2>Serving God, Serving Others</h2>
+                <p>At Kitonyini Central SDA Church, our ministries are designed to nurture spiritual growth, build community, and reach out to others with the love of Christ. Whatever your age or stage in life, there's a place for you to connect, grow, and serve.</p>
+            </section>
+
+            <div class="ministries-grid">
+                <!-- Ministries (condensed) -->
+                <div class="ministry-card">
+                    <div class="ministry-icon"><div class="ministry-icon-symbol">📖</div><h3 class="ministry-title">Sabbath School</h3></div>
+                    <div class="ministry-content">
+                        <div class="ministry-description">An interactive Bible study experience for all ages. We dive deep into God's Word together, fostering spiritual growth and biblical understanding.</div>
+                        <div class="ministry-details"><div class="ministry-detail-item"><span class="ministry-detail-icon">🕐</span><span>Saturdays, 9:00 AM - 10:15 AM</span></div><div class="ministry-detail-item"><span class="ministry-detail-icon">📍</span><span>Church Sanctuary & Classrooms</span></div></div>
+                        <div class="ministry-leaders"><div class="ministry-leader"><strong>Director:</strong> <span class="leader-name">Elder John Mwangi</span></div></div>
+                    </div>
+                </div>
+
+                <div class="ministry-card">
+                    <div class="ministry-icon"><div class="ministry-icon-symbol">🎨</div><h3 class="ministry-title">Children's Ministry</h3></div>
+                    <div class="ministry-content">
+                        <div class="ministry-description">Fun, safe, and nurturing programs where children learn about Jesus through stories, songs, and activities.</div>
+                        <div class="ministry-details"><div class="ministry-detail-item"><span class="ministry-detail-icon">🕐</span><span>Saturdays, 9:00 AM - 12:00 PM</span></div></div>
+                        <div class="ministry-leaders"><div class="ministry-leader"><strong>Director:</strong> <span class="leader-name">Sister Grace Wanjiku</span></div></div>
+                    </div>
+                </div>
+
+                <div class="ministry-card">
+                    <div class="ministry-icon"><div class="ministry-icon-symbol">⚡</div><h3 class="ministry-title">Adventist Youth (AY)</h3></div>
+                    <div class="ministry-content">
+                        <div class="ministry-description">Programs and fellowship for young people to grow in faith and leadership.</div>
+                        <div class="ministry-details"><div class="ministry-detail-item"><span class="ministry-detail-icon">🕐</span><span>Saturdays, 4:00 PM - 6:00 PM</span></div></div>
+                        <div class="ministry-leaders"><div class="ministry-leader"><strong>Director:</strong> <span class="leader-name">Brother David Kamau</span></div></div>
+                    </div>
+                </div>
+
+                <div class="ministry-card">
+                    <div class="ministry-icon"><div class="ministry-icon-symbol">🌸</div><h3 class="ministry-title">Women's Ministry</h3></div>
+                    <div class="ministry-content">
+                        <div class="ministry-description">A supportive community for women offering Bible studies, prayer groups, and outreach opportunities.</div>
+                        <div class="ministry-details"><div class="ministry-detail-item"><span class="ministry-detail-icon">🕐</span><span>Wednesdays, 5:00 PM - 7:00 PM</span></div></div>
+                        <div class="ministry-leaders"><div class="ministry-leader"><strong>Director:</strong> <span class="leader-name">Sister Mary Njeri</span></div></div>
+                    </div>
+                </div>
+
+                <div class="ministry-card">
+                    <div class="ministry-icon"><div class="ministry-icon-symbol">🛡️</div><h3 class="ministry-title">Men's Ministry</h3></div>
+                    <div class="ministry-content">
+                        <div class="ministry-description">Fellowship and discipleship to build character and leadership among men.</div>
+                        <div class="ministry-details"><div class="ministry-detail-item"><span class="ministry-detail-icon">🕐</span><span>First Saturday, 3:00 PM - 5:00 PM</span></div></div>
+                        <div class="ministry-leaders"><div class="ministry-leader"><strong>Director:</strong> <span class="leader-name">Elder Peter Ochieng</span></div></div>
+                    </div>
+                </div>
+
+                <div class="ministry-card">
+                    <div class="ministry-icon"><div class="ministry-icon-symbol">🎵</div><h3 class="ministry-title">Music Ministry</h3></div>
+                    <div class="ministry-content">
+                        <div class="ministry-description">Choirs and praise teams that lead worship and minister through music.</div>
+                        <div class="ministry-details"><div class="ministry-detail-item"><span class="ministry-detail-icon">🕐</span><span>Choir Practice: Fridays, 5:00 PM</span></div></div>
+                        <div class="ministry-leaders"><div class="ministry-leader"><strong>Director:</strong> <span class="leader-name">Brother James Mutua</span></div></div>
+                    </div>
+                </div>
+
+                <div class="ministry-card">
+                    <div class="ministry-icon"><div class="ministry-icon-symbol">❤️</div><h3 class="ministry-title">Community Services</h3></div>
+                    <div class="ministry-content">
+                        <div class="ministry-description">Practical outreach including food assistance, health screenings, and education programs for the community.</div>
+                        <div class="ministry-details"><div class="ministry-detail-item"><span class="ministry-detail-icon">🕐</span><span>Sundays, 9:00 AM - 1:00 PM</span></div></div>
+                        <div class="ministry-leaders"><div class="ministry-leader"><strong>Director:</strong> <span class="leader-name">Sister Ruth Akinyi</span></div></div>
+                    </div>
+                </div>
+
+                <div class="ministry-card">
+                    <div class="ministry-icon"><div class="ministry-icon-symbol">🙏</div><h3 class="ministry-title">Prayer Ministry</h3></div>
+                    <div class="ministry-content">
+                        <div class="ministry-description">Corporate prayer meetings and a prayer chain to intercede for church members and the wider community.</div>
+                        <div class="ministry-details"><div class="ministry-detail-item"><span class="ministry-detail-icon">🕐</span><span>Wednesdays, 6:30 PM</span></div></div>
+                        <div class="ministry-leaders"><div class="ministry-leader"><strong>Director:</strong> <span class="leader-name">Elder Samuel Kimani</span></div></div>
+                    </div>
+                </div>
+
+                <div class="ministry-card">
+                    <div class="ministry-icon"><div class="ministry-icon-symbol">🏥</div><h3 class="ministry-title">Health Ministry</h3></div>
+                    <div class="ministry-content">
+                        <div class="ministry-description">Health education, cooking classes, fitness programs, and screenings to promote wholistic well-being.</div>
+                        <div class="ministry-details"><div class="ministry-detail-item"><span class="ministry-detail-icon">🕐</span><span>Monthly Health Expos: 2nd Sunday</span></div></div>
+                        <div class="ministry-leaders"><div class="ministry-leader"><strong>Director:</strong> <span class="leader-name">Dr. Sarah Muthoni</span></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="cta-section">
+                <h2>Ready to Get Involved?</h2>
+                <p>Discover your place in our church family. Connect with a ministry today.</p>
+                <a href="contact.html" class="cta-btn">Contact Us</a>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h4>Kitonyini Central SDA Church</h4>
+                    <p>A community of believers dedicated to worship, fellowship, and service.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="beliefs.html">Our Beliefs</a>
+                    <a href="departments-and-ministries.html">Ministries</a>
+                    <a href="resources.html">Resources</a>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <p>Kitonyini, Machakos County, Kenya</p>
+                    <p>Phone: +254 700 000 000</p>
+                    <p>Email: info@kitonyinicentralsda.or.ke</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Kitonyini Central SDA Church. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleNav(){ document.getElementById('mainNav').classList.toggle('active'); }
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{ a.addEventListener('click', e=>{ const href=a.getAttribute('href'); if(href.length>1){ const t=document.querySelector(href); if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); } } }); });
+    </script>
+</body>
+</html>

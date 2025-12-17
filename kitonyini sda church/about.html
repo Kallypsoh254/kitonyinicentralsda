@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Kitonyini Central SDA Church</title>
+    <meta name="description" content="Learn about Kitonyini Central Seventh Day Adventist Church - Our history, beliefs, pastors, and mission">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2f557f;
+            --dark-blue: #052252;
+            --light-blue: #4a7ba7;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --accent-gold: #c9a961;
+        }
+
+        body {
+            font-family: 'Noto Sans', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background-color: var(--light-gray);
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .header-top-nav {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .header-top-nav a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .header-top-nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+        }
+
+        .church-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-blue);
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .main-nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: var(--primary-blue);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(47, 85, 127, 0.9), rgba(5, 34, 82, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300"><rect fill="%232f557f" width="1200" height="300"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Noto Serif', serif;
+        }
+
+        .breadcrumb {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 4rem 0;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            font-family: 'Noto Serif', serif;
+            text-align: center;
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-gold);
+            margin: 0 auto 2rem;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        /* History Timeline */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: var(--primary-blue);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .timeline-date {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .timeline-content h3 {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .value-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .value-card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* Pastor Cards */
+        .pastor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pastor-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .pastor-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pastor-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 5rem;
+        }
+
+        .pastor-info {
+            padding: 1.5rem;
+        }
+
+        .pastor-info h3 {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .pastor-title {
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .pastor-bio {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* Beliefs Section */
+        .beliefs-intro {
+            background: var(--light-gray);
+            padding: 3rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .beliefs-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .belief-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-blue);
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .belief-item h4 {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 3rem 0;
+            margin: 4rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--light-gray);
+            padding: 3rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-section h2 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--dark-blue);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 2rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer h4 {
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .footer a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                padding: 1rem;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+
+            .main-nav.active {
+                display: flex;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+                padding-left: 60px;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-date {
+                left: 30px;
+                transform: translateX(-50%);
+                font-size: 0.8rem;
+                padding: 0.3rem 0.6rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+
+        .sda-logo {
+            width: 253.71px;
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <nav class="header-top-nav">
+                    <a href="index.html#giving">Online Giving</a>
+                    <a href="index.html#livestream">Live Stream</a>
+                    <a href="index.html#prayer">Prayer Request</a>
+                    <a href="index.html#announcements">Announcements</a>
+                </nav>
+            </div>
+        </div>
+        <div class="container header-main">
+            <a href="index.html" class="logo">
+                <svg class="sda-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 253.71 227.63">
+                    <path fill="#2f557f" d="M67.68,120.38c-.1-9.91,2.8-18.41,20.8-36.41l39-39c10.4-10.4,19.1-19.29,19.1-29V.67c0-.89-1.1-.89-1.2,0-2.6,12.4-7.5,17.3-17.8,27.61L82.28,73.47c-17.1,17-19.5,35.1-15.8,46.91C66.78,121.38,67.68,121.47,67.68,120.38Zm64.2,38.9c0,.89,1,.89,1.2,0,2.6-12.5,7.6-17.4,17.8-27.61L166,116.78c19.8-19.9,10.7-39-.9-44.31-1-.5-1.4.31-.6,1,9.3,8,6.5,21.5-5.2,33.2L151,115c-10.4,10.31-19.1,19.2-19.1,29Zm81.8,26.6L168,178.17l-17.1,17.11c-10.4,10.39-19,19.3-19,29V227c0,.7.9.9,1.2.11,3.2-8.7,13.9-18.11,33.5-14.8,0,0,85.4,14.8,86.1,14.8a.9.9,0,0,0,1-.61.79.79,0,0,0-.2-.8c-.3-.39-39.8-39.8-39.8-39.8Zm-107.5,1h15a.66.66,0,0,0,.6-.6c0-7.9-6-13.31-30-9.2L40,186S.58,225.37.28,225.78a.79.79,0,0,0-.1,1.1.81.81,0,0,0,.8.2c.7-.11,86.1-14.8,86.1-14.8,19.6-3.31,30.3,6,33.5,14.8.3.8,1.2.7,1.2-.11v-29.5a.66.66,0,0,0-.6-.6l-15,.1a.64.64,0,0,1-.6-.6v-8.9a.65.65,0,0,1,.6-.6Z"/>
+                </svg>
+                <div class="church-name">Kitonyini Central SDA Church</div>
+            </a>
+            <button class="nav-toggle" onclick="toggleNav()">☰</button>
+            <nav>
+                <ul class="main-nav" id="mainNav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="beliefs.html">Beliefs</a></li>
+                    <li><a href="ministries.html">Ministries</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>About Us</h1>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / About Us
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Introduction -->
+            <section class="section">
+                <h2 class="section-title">Welcome to Kitonyini Central SDA Church</h2>
+                <div class="section-divider"></div>
+                <p class="intro-text">
+                    Kitonyini Central Seventh-day Adventist Church is a vibrant community of believers committed to following Jesus Christ and sharing His love with our community. We are part of the worldwide Seventh-day Adventist Church family, united in our mission to prepare people for the soon return of Jesus Christ.
+                </p>
+            </section>
+
+            <!-- Church History -->
+            <section class="section">
+                <h2 class="section-title">Our History</h2>
+                <div class="section-divider"></div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>The Beginning</h3>
+                            <p>© 2025 Kitonyini Central SDA Church. All rights reserved.</p>
+                <p>Seventh-day Adventist Church - Machakos County, Kenya</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleNav() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    document.getElementById('mainNav').classList.remove('active');
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.value-card, .pastor-card, .timeline-item, .belief-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>The Seventh-day Adventist message reached Kitonyini area through dedicated missionaries and local evangelists who shared the three angels' messages with the community.</p>
+                        </div>
+                        <div class="timeline-date">Early Years</div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Church Establishment</h3>
+                            <p>A small group of believers began meeting regularly for worship, Bible study, and fellowship. The church was officially organized as Kitonyini Central SDA Church.</p>
+                        </div>
+                        <div class="timeline-date">Foundation</div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Growth & Development</h3>
+                            <p>Through God's blessing and faithful witnessing, the church grew in membership and influence. Various ministries and departments were established to serve the community.</p>
+                        </div>
+                        <div class="timeline-date">Expansion</div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Today</h3>
+                            <p>Kitonyini Central SDA Church continues to grow and serve as a beacon of hope in the community, actively involved in evangelism, education, health ministry, and community service.</p>
+                        </div>
+                        <div class="timeline-date">Present</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="stats-section">
+                <div class="container">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Church Members</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Active Ministries</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">200+</div>
+                            <div class="stat-label">Children & Youth</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Branch Churches</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Our Values -->
+            <section class="section">
+                <h2 class="section-title">Our Core Values</h2>
+                <div class="section-divider"></div>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">📖</div>
+                        <h3>Bible-Based</h3>
+                        <p>We believe the Bible is God's inspired Word and the foundation for all our beliefs and practices.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">❤️</div>
+                        <h3>Christ-Centered</h3>
+                        <p>Jesus Christ is at the center of everything we do, teach, and believe.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">🤝</div>
+                        <h3>Community Focused</h3>
+                        <p>We serve our community through health education, social services, and spiritual ministry.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">🌍</div>
+                        <h3>Mission Driven</h3>
+                        <p>We are committed to sharing the gospel and making disciples in Kenya and around the world.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">👨‍👩‍👧‍👦</div>
+                        <h3>Family Oriented</h3>
+                        <p>We strengthen families through biblical principles and supportive community.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">💪</div>
+                        <h3>Wholistic Health</h3>
+                        <p>We promote physical, mental, and spiritual wellness as taught in Scripture.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Our Pastors -->
+            <section class="section">
+                <h2 class="section-title">Our Pastoral Team</h2>
+                <div class="section-divider"></div>
+                
+                <div class="pastor-grid">
+                    <div class="pastor-card">
+                        <div class="pastor-image">👨‍💼</div>
+                        <div class="pastor-info">
+                            <h3>Pastor [Name]</h3>
+                            <p class="pastor-title">Senior Pastor</p>
+                            <p class="pastor-bio">
+                                Leading our congregation with biblical wisdom and compassion. Dedicated to preaching the Word, pastoral care, and equipping members for ministry.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="pastor-card">
+                        <div class="pastor-image">👨‍💼</div>
+                        <div class="pastor-info">
+                            <h3>Pastor [Name]</h3>
+                            <p class="pastor-title">Associate Pastor</p>
+                            <p class="pastor-bio">
+                                Specializing in youth ministry, evangelism, and discipleship. Passionate about reaching the next generation for Christ.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="pastor-card">
+                        <div class="pastor-image">👨‍💼</div>
+                        <div class="pastor-info">
+                            <h3>Elder [Name]</h3>
+                            <p class="pastor-title">Head Elder</p>
+                            <p class="pastor-bio">
+                                Providing spiritual leadership and support to our church family. Coordinating various ministries and church programs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fundamental Beliefs Preview -->
+            <section class="section">
+                <h2 class="section-title">What We Believe</h2>
+                <div class="section-divider"></div>
+                
+                <div class="beliefs-intro">
+                    <p style="text-align: center; font-size: 1.1rem; line-height: 1.8;">
+                        Seventh-day Adventists accept the Bible as the only source of our beliefs. We consider our movement to be the result of the Protestant conviction <em>Sola Scriptura</em>—the Bible as the only standard of faith and practice for Christians.
+                    </p>
+                </div>
+                
+                <div class="beliefs-list">
+                    <div class="belief-item">
+                        <h4>The Holy Scriptures</h4>
+                        <p>The Bible is the inspired Word of God, the foundation of truth.</p>
+                    </div>
+                    
+                    <div class="belief-item">
+                        <h4>The Trinity</h4>
+                        <p>One God: Father, Son, and Holy Spirit, a unity of three co-eternal Persons.</p>
+                    </div>
+                    
+                    <div class="belief-item">
+                        <h4>Salvation</h4>
+                        <p>Salvation is by grace through faith in Jesus Christ alone.</p>
+                    </div>
+                    
+                    <div class="belief-item">
+                        <h4>The Sabbath</h4>
+                        <p>The seventh day (Saturday) is God's holy day of rest and worship.</p>
+                    </div>
+                    
+                    <div class="belief-item">
+                        <h4>Second Coming</h4>
+                        <p>Jesus Christ will return personally, visibly, and soon.</p>
+                    </div>
+                    
+                    <div class="belief-item">
+                        <h4>Wholistic Health</h4>
+                        <p>Our bodies are temples of the Holy Spirit; we practice healthful living.</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="beliefs.html" class="btn btn-primary">View All 28 Fundamental Beliefs</a>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="cta-section">
+                <h2>Join Our Church Family</h2>
+                <p>We would love to have you worship with us and become part of our church community.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Visit Us</a>
+                    <a href="index.html#services" class="btn btn-secondary">Service Times</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h4>Kitonyini Central SDA Church</h4>
+                    <p>Kitonyini, Machakos County<br>
+                    Kenya</p>
+                    <p>Email: info@kitonyinicentralsda.or.ke<br>
+                    Phone: +254 XXX XXX XXX</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="beliefs.html">Our Beliefs</a>
+                    <a href="ministries.html">Ministries</a>
+                    <a href="index.html#giving">Online Giving</a>
+                </div>
+                <div>
+                    <h4>Resources</h4>
+                    <a href="https://www.adventist.org" target="_blank">Adventist.org</a>
+                    <a href="https://www.hopetv.org" target="_blank">Hope Channel</a>
+                    <a href="https://www.awr.org" target="_blank">Adventist World Radio</a>
+                    <a href="https://absg.adventist.org" target="_blank">Bible Study Guide</a>
+                </div>
+                <div>
+                    <h4>Connect With Us</h4>
+                    <a href="#facebook">Facebook</a>
+                    <a href="#twitter">Twitter</a>
+                    <a href="#instagram">Instagram</a>
+                    <a href="#youtube">YouTube</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>

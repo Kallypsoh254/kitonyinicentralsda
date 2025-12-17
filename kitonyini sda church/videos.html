@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Videos — Kitonyini Central</title>
+  <style>
+    .video-feature { max-width: 900px; margin: 0 auto 2rem; }
+    .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+    .video-wrap iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:0; }
+    .video-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .video-card { background: #fff; border-radius: 6px; padding: 0.5rem; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+    .video-card h3 { margin: 0.5rem 0 0; font-size: 1rem; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-top">
+      <div class="container">
+        <nav class="header-top-nav">
+          <a href="giving.html">Online Giving</a>
+          <a href="live-stream.html">Live Stream</a>
+          <a href="prayer-request.html">Prayer Request</a>
+          <a href="announcements.html">Announcements</a>
+        </nav>
+      </div>
+    </div>
+    <div class="container header-main">
+      <div class="logo">
+        <svg class="sda-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 253.71 227.63"><path fill="#2f557f" d="M67.68,120.38c-.1-9.91,2.8-18.41,20.8-36.41l39-39c10.4-10.4,19.1-19.29,19.1-29V.67c0-.89-1.1-.89-1.2,0-2.6,12.4-7.5,17.3-17.8,27.61L82.28,73.47c-17.1,17-19.5,35.1-15.8,46.91C66.78,121.38,67.68,121.47,67.68,120.38Zm64.2,38.9c0,.89,1,.89,1.2,0,2.6-12.5,7.6-17.4,17.8-27.61L166,116.78c19.8-19.9,10.7-39-.9-44.31-1-.5-1.4.31-.6,1,9.3,8,6.5,21.5-5.2,33.2L151,115c-10.4,10.31-19.1,19.2-19.1,29Z"/></svg>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Videos</h1>
+      <p>Sermons and teaching resources from Kitonyini Central.</p>
+    </div>
+  </section>
+
+  <main class="main-content container">
+    <section class="section">
+      <h2 class="section-title">Featured Videos</h2>
+      <div class="section-divider"></div>
+
+      <div class="video-feature">
+        <div class="video-wrap">
+          <!-- Featured sermon: replace the `embed` ID below with your YouTube video ID -->
+          <iframe src="https://www.youtube.com/embed/ysz5S6PUM-U" title="Featured Sermon" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p style="text-align:center; margin-top:.5rem;">Featured Sermon — replace this with your latest sermon.</p>
+      </div>
+
+      <h3 style="margin-top:1.5rem;">Recent Messages & Teaching</h3>
+      <div class="video-grid">
+        <div class="video-card">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" title="Sermon 1" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <h3>Sermon Title — Speaker Name</h3>
+        </div>
+
+        <div class="video-card">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" title="Sermon 2" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <h3>Teaching Session — Speaker Name</h3>
+        </div>
+
+        <div class="video-card">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/6lt2JfJdGSY" title="Sermon 3" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <h3>Pastoral Message — Speaker Name</h3>
+        </div>
+      </div>
+
+      <div style="margin-top:1rem; padding:0.75rem; background:#f9f9f9; border-radius:6px;">
+        <strong>How to replace videos:</strong>
+        <ul>
+          <li>Get the YouTube video ID (the part after <code>v=</code> in the URL) or use the embed URL.</li>
+          <li>Replace the value in the iframe <code>src="https://www.youtube.com/embed/VIDEO_ID"</code>.</li>
+          <li>To add more videos, copy one of the <code>.video-card</code> blocks and paste it into the <code>.video-grid</code>.</li>
+        </ul>
+        <p>If you prefer Vimeo or local video files, I can update the embeds accordingly.</p>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2025 Kitonyini Central SDA Church. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
